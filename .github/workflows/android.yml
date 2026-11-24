@@ -31,18 +31,12 @@ jobs:
           yes | sdkmanager --licenses >/dev/null 2>&1 || true
           sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Setup Gradle 8.9
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.9'
 
       - name: Build APK
         working-directory: RobloxAIStudioAssistant-V5-GitHub-Ready-2/RobloxAIStudioAssistant
         run: |
-          if [ ! -f "./gradlew" ] || [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then
-            echo "Generating Gradle Wrapper..."
-            gradle wrapper --gradle-version 8.9
-          fi
           chmod +x ./gradlew
           ./gradlew testDebugUnitTest assembleDebug --no-daemon --stacktrace
 
@@ -50,31 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: RobloxAIStudioAssistant-v5.0.0-debug
-          path: RobloxAIStudioAssistant-V5-GitHub-Ready-2/RobloxAIStudioAssistant/app/build/outputs/apk/debug/app-debug.apk
+          path: RobloxAIStudioAssistant-V5-GitHub-Ready-2/RobloxAIStudioAssistant/app/build/outputs/apk/**/debug/*.apk
           if-no-files-found: error
           retention-days: 30
-   
-
-
-
-      
-
-
-
-
-    
-  
-
-
-      
-
-
-
-
-
-
-         
-
-
-
-    
+          
