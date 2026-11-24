@@ -29,7 +29,7 @@ jobs:
           touch ~/.android/repositories.cfg
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v5
+        uses: android-actions/setup-android@v4
 
       - name: Install Android SDK Platform 35 & Build Tools
         run: |
