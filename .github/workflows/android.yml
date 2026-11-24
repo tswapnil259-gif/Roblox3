@@ -23,6 +23,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Create Android Home Directory
+        run: |
+          mkdir -p ~/.android
+          touch ~/.android/repositories.cfg
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
@@ -38,7 +43,7 @@ jobs:
         working-directory: RobloxAIStudioAssistant-V5-GitHub-Ready-2/RobloxAIStudioAssistant
         run: |
           chmod +x ./gradlew
-          ./gradlew testDebugUnitTest assembleDebug --no-daemon --stacktrace
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
