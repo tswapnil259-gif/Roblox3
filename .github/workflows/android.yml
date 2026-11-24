@@ -27,6 +27,15 @@ jobs:
        path: '**/*.apk'
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+  
+
+
+    
+  
+
+
+      
+
 
 
 
