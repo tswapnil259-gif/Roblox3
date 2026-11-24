@@ -25,9 +25,10 @@ jobs:
       with:
        name: app-debug
        path: '**/*.apk'
-    - name: Build with Gradle
-      run: ./gradlew assembleDebug
-  
+    - name: Build withGradle
+      run: bash ./gradlew assembleDebug
+
+
 
 
     
